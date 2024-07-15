@@ -11,9 +11,6 @@ import { SwitchesPageComponent } from '../reactive/pages/switches-page/switches-
 @NgModule({
   declarations: [
     RegisterPageComponent,
-    BasicPageComponent,
-    DynamicPageComponent,
-    SwitchesPageComponent
   ],
   imports: [
     CommonModule,
