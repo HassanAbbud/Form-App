@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ValidatorsService } from '../../../shared/services/validators.service';
 
 @Component({
   templateUrl: './dynamic-page.component.html',
@@ -23,11 +24,13 @@ export class DynamicPageComponent {
     //return my
   }
 
-  constructor(private fb: FormBuilder){}
+  constructor(
+    private fb: FormBuilder,
+    private validatorService:ValidatorsService
+  ){}
 
   isNotValidField( field: string ): boolean | null {
-    return this.myForm.controls[field].errors
-      && this.myForm.controls[field].touched;
+    return this.validatorService.isNotValidField(this.myForm, field)
   }
 
   isNotValidFieldInArray( formArray: FormArray, index: number ): boolean | null {

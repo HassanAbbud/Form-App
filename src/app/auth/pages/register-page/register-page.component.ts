@@ -21,8 +21,8 @@ export class RegisterPageComponent {
     private validatorService: ValidatorsService,
   ){}
 
-  isNotValidField( field: string ) {
-   this.validatorService.isNotValidField(this.myForm, field)
+  isNotValidField( field: string ): boolean | null {
+    return this.validatorService.isNotValidField( this.myForm, field );
   }
 
   onSubmit():void {

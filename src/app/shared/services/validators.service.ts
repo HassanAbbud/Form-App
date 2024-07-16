@@ -12,9 +12,9 @@ export class ValidatorsService {
   constructor() { }
 
   public isNotValidField( form: FormGroup, field: string ): boolean | null {
-    return form.controls[field].errors
-      && form.controls[field].touched;
+    return form.controls[field].errors && form.controls[field].touched;
   }
+
 
   public cantBeStrider = ( control: FormControl ): ValidationErrors | null => {
 

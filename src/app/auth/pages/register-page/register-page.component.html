@@ -43,7 +43,7 @@
                            class="form-control"
                            placeholder="Unique username"
                            formControlName="username">
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isNotValidField('username')">
                          User name can't be Strider
                     </span>
                 </div>
