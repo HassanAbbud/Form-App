@@ -26,11 +26,13 @@
 
             <div class="input-group">
                 <input class="form-control"
-                       placeholder="Add favorite">
+                       placeholder="Add favorite"
+                       [formControl]="newFavorite">
 
 
                 <button class="btn btn-outline-primary"
-                        type="button">
+                        type="button"
+                        (click)="onAddToFavorite()">
                         Add favorite
                 </button>
             </div>
@@ -86,13 +88,13 @@
 
 
 <span>Valid</span>
-<pre>{{ 'object' | json }}</pre>
+<pre>{{ myForm.valid | json }}</pre>
 <br>
 
 <span>Value</span>
-<pre>{{ 'object' | json }}</pre>
+<pre>{{ myForm.value | json }}</pre>
 <br>
 
 <span>Add Game</span>
-<pre>{{ 'object' | json }}</pre>
-<pre>{{ 'object' | json }}</pre>
+<pre>{{ newFavorite.valid | json }}</pre>
+<pre>{{ newFavorite.value | json }}</pre>
