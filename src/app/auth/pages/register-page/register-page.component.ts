@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidatorsService } from '../../../shared/services/validators.service';
+import { EmailValidatorService } from '../../../shared/validators/email-validator.service';
 //import * as customValidators from '../../../shared/validators/validators';
 
 @Component({
@@ -10,7 +11,7 @@ import { ValidatorsService } from '../../../shared/services/validators.service';
 export class RegisterPageComponent {
   public myForm: FormGroup = this.fb.group({
     name: ["", [Validators.required, Validators.pattern(this.validatorService.firstNameAndLastnamePattern)]],
-    email: ["", [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
+    email: ["", [Validators.required, Validators.pattern(this.validatorService.emailPattern)], [this.emailValidatorService ]],
     username: ["", [Validators.required, this.validatorService.cantBeStrider]],
     password: ["", [Validators.required, Validators.minLength(6)]],
     passwordConfirmation: ["", [Validators.required]],
@@ -19,6 +20,7 @@ export class RegisterPageComponent {
   constructor(
     private fb:FormBuilder,
     private validatorService: ValidatorsService,
+    private emailValidatorService: EmailValidatorService,
   ){}
 
   isNotValidField( field: string ): boolean | null {

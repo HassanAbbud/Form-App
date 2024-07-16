@@ -15,7 +15,7 @@
                            placeholder="User name"
                            formControlName="name">
 
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isNotValidField('name')">
                         Format should be name and last name
                     </span>
                 </div>
@@ -29,8 +29,8 @@
                            class="form-control"
                            placeholder="User email"
                            formControlName="email">
-                    <span class="form-text text-danger">
-                        email error message
+                    <span class="form-text text-danger" *ngIf="isNotValidField('email')">
+                        Email not valid
                     </span>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                            placeholder="Account password"
                            formControlName="password">
 
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isNotValidField('password')">
                          Password must have more than 6 characters.
                     </span>
                 </div>
@@ -73,7 +73,7 @@
                            placeholder="Confirm password"
                            formControlName="passwordConfirmation">
 
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isNotValidField('passwordConfirmation')">
                          Passwords must match
                     </span>
                 </div>
