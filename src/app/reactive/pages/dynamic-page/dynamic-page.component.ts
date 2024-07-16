@@ -60,7 +60,7 @@ export class DynamicPageComponent {
   onAddToFavorite(): void{
     if (this.newFavorite.invalid) return;
     const newGame = this.newFavorite.value;
-
+    //from add in html
     this.favoriteGames.push(this.fb.control(newGame, [Validators.required]));
 
     this.newFavorite.reset();
@@ -71,6 +71,7 @@ export class DynamicPageComponent {
       this.myForm.markAllAsTouched();
       return;
     };
+    console.log(this.myForm.value)
   }
 
   onDeleteFavorite(index: number){

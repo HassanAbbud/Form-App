@@ -2,7 +2,7 @@
 <hr>
 
 
-<form autocomplete="off">
+<form autocomplete="off" [formGroup]="myForm" (ngSubmit)="onSave()">
 
     <!-- Radio -->
     <div class="row mb-3">
@@ -13,7 +13,8 @@
                 <input class="form-check-input"
                        type="radio"
                        value="M"
-                       id="radioMasculine">
+                       id="radioMasculine"
+                       formControlName="gender">
                 <label class="form-check-label" for="radioMasculine">
                   Masculine
                 </label>
@@ -23,7 +24,8 @@
                 <input class="form-check-input"
                        type="radio"
                        value="F"
-                       id="radioFemenine">
+                       id="radioFemenine"
+                       formControlName="gender">
                 <label class="form-check-label" for="radioFemenine">
                   Femenine
                 </label>
@@ -40,7 +42,8 @@
             <div class="form-check form-switch mt-2">
                 <input class="form-check-input"
                        type="checkbox"
-                       id="flexSwitchCheckChecked">
+                       id="flexSwitchCheckChecked"
+                       formControlName="wantNotifications">
                 <label class="form-check-label" for="flexSwitchCheckChecked">I want to recieve notifications</label>
             </div>
 
@@ -54,12 +57,13 @@
             <div class="form-check">
                 <input class="form-check-input"
                        type="checkbox"
-                       id="flexCheckDefault">
+                       id="flexCheckDefault"
+                       formControlName="termsAndConditions">
                 <label class="form-check-label" for="flexCheckDefault">
                   Terms and conditions
                 </label>
               </div>
-              <span class="form-text text-danger">
+              <span class="form-text text-danger" *ngIf="isNotValid('termsAndConditions')">
                  Must agree to terms and conditions
               </span>
 
@@ -71,7 +75,8 @@
     <div class="row">
         <div class="col">
             <button class="btn btn-primary float-end"
-                    type="submit">
+                    type="submit"
+                    >
                 Save
             </button>
         </div>
@@ -81,7 +86,7 @@
 
 
 <h5>Form value</h5>
-<pre>{{ 'object' | json }}</pre>
+<pre>{{ myForm.value| json }}</pre>
 <br>
 
 <h5>Persona</h5>
@@ -89,7 +94,7 @@
 <br>
 
 <h5>Valid</h5>
-<pre>{{ 'object' | json }}</pre>
+<pre>{{ myForm.valid| json }}</pre>
 
 <!-- <h5>Términos</h5> -->
 <!-- <pre>{{ myForm.controls?.terminos?.errors | json }}</pre> -->
